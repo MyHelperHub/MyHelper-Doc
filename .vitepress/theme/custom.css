@@ -1,0 +1,96 @@
+/* 页面过渡动画 */
+.VPContent {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+
+/* 页面离开动画 */
+.VPContent.leaving {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+
+/* 页面进入动画 */
+.VPContent.entering {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fade-slide-in 0.35s ease-out forwards;
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 导航链接过渡效果 */
+.VPNavBarMenuLink {
+  position: relative;
+  transition: color 0.25s;
+}
+
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--vp-c-brand);
+  transition: width 0.25s ease;
+}
+
+.VPNavBarMenuLink:hover::after {
+  width: 100%;
+}
+
+/* 侧边栏链接动画 */
+.VPSidebarItem .link {
+  transition: color 0.25s, padding-left 0.25s;
+}
+
+.VPSidebarItem .link:hover {
+  padding-left: 4px;
+}
+
+/* 主页特性卡片动画 */
+.VPFeature {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* 按钮动画 */
+.VPButton {
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+.VPButton:hover {
+  transform: translateY(-1px);
+}
+
+.VPButton:active {
+  transform: translateY(0);
+}
+
+/* 主题切换按钮动画 */
+.VPSwitchAppearance {
+  transition: transform 0.25s ease;
+}
+
+.VPSwitchAppearance:hover {
+  transform: rotate(15deg);
+} 
